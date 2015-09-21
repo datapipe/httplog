@@ -9,7 +9,7 @@ module Net
 
       log_enabled = HttpLog.url_approved?(url)
 
-      if log_enabled && started?
+      if log_enabled
         HttpLog.log_request(req.method, url)
         HttpLog.log_headers(req.each_header.collect)
         # A bit convoluted becase post_form uses form_data= to assign the data, so
